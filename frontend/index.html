@@ -1,0 +1,470 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Ritik’s portfolio: ask me anything</title>
+<meta name="description" content="Chat with Ritik’s portfolio: projects, skills, education and contact links.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap" rel="stylesheet">
+<script>try{document.documentElement.dataset.theme=localStorage.getItem("theme")||"dark"}catch(e){document.documentElement.dataset.theme="dark"}</script>
+<style>
+:root{--bg:#F5F3EE;--side:#ECE8DF;--ink:#1B1A17;--mute:#6F6B62;--line:#DCD7CB;--card:#FFFFFF;--nav:rgba(255,255,255,.78);--acc:#8A5A3C;--acc-ink:#FFFFFF;
+--ui:'Plus Jakarta Sans',system-ui,-apple-system,'Segoe UI',sans-serif;--serif:'Newsreader',Georgia,'Times New Roman',serif;--mono:'JetBrains Mono',ui-monospace,Menlo,Consolas,monospace}
+:root[data-theme="dark"]{--bg:#131311;--side:#1B1A18;--ink:#EFEBE3;--mute:#8F8A7F;--line:#2A2825;--card:#1A1917;--nav:rgba(26,25,23,.8);--acc:#E2C7AE;--acc-ink:#1B1713;color-scheme:dark}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0}
+body{background:var(--bg);color:var(--ink);font:15px/1.5 var(--ui);overflow:hidden}
+button{font:inherit;color:inherit;cursor:pointer}
+:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
+.mono{font:500 12px var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--mute);margin:0}
+
+/* Floating pill navbar */
+.nav{position:fixed;top:max(14px,env(safe-area-inset-top));left:50%;transform:translateX(-50%);width:min(1280px,calc(100% - 28px));height:60px;z-index:10;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:0 14px 0 22px;border:1px solid var(--line);border-radius:999px;background:var(--nav);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);box-shadow:0 12px 40px rgba(0,0,0,.18)}
+.left{display:flex;align-items:center;gap:10px;min-width:120px}
+.logo{font:600 19px var(--ui);letter-spacing:-.03em;color:var(--ink);text-decoration:none}
+.menu{list-style:none;margin:0;padding:0;display:flex;gap:6px}
+.menu button,.menu a{border:0;background:none;color:var(--mute);padding:8px 14px;border-radius:999px;font-size:14px}
+.menu button:hover{color:var(--ink);background:var(--side)}
+.burger{display:none;border:1px solid var(--line);background:none;border-radius:50%;width:36px;height:36px}
+.toggle{position:relative;width:58px;height:32px;border-radius:999px;border:1px solid var(--line);background:var(--bg);padding:0;flex:none}
+.toggle span{position:absolute;top:3px;left:4px;width:24px;height:24px;border-radius:50%;background:var(--ink);transition:transform .2s}
+:root[data-theme="dark"] .toggle span{transform:translateX(25px)}
+
+.shell{display:flex;height:100%;padding-top:calc(92px + env(safe-area-inset-top,0px))}
+
+/* Sidebar */
+aside{width:272px;flex:none;min-height:0;border-right:1px solid var(--line);display:flex;flex-direction:column;padding:10px 14px 16px;gap:18px;transition:transform .2s}
+.new{border:1px solid var(--line);background:var(--card);border-radius:10px;padding:9px 12px;text-align:left;font-weight:500}
+.new:hover{border-color:var(--acc)}
+aside h2{font:500 11.5px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--mute);margin:0 6px 8px}
+.links,.plist{list-style:none;margin:0;padding:0}
+.links a{display:flex;align-items:center;gap:10px;padding:7px 8px;border-radius:8px;color:var(--ink);text-decoration:none}
+.links a:hover{background:var(--side)}
+.ico{width:26px;height:26px;border-radius:7px;border:1px solid var(--line);background:var(--card);display:grid;place-items:center;font:600 11px var(--ui);color:var(--acc)}
+.plist-wrap{flex:1;min-height:0;display:flex;flex-direction:column}
+.plist{overflow-y:auto;flex:1}
+.plist button{display:block;width:100%;text-align:left;border:0;background:none;padding:7px 8px;border-radius:8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.plist button:hover,.plist button.on{background:var(--side)}
+.foot{font-size:12.5px;color:var(--mute);padding:0 6px}
+
+/* Main */
+main{flex:1;min-width:0;display:flex;flex-direction:column}
+#feed{flex:1;overflow-y:auto;padding:0 28px 12px}
+.col{max-width:860px;margin:0 auto}
+.hero{display:grid;grid-template-columns:1fr 250px;gap:32px;align-items:center;padding:44px 0 36px}
+.type{font:400 30px/1.25 var(--ui);margin:0 0 22px;min-height:1.3em}
+.type i{display:inline-block;width:2px;height:1em;background:var(--acc);margin-left:3px;vertical-align:-.14em;animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+.headline{font:500 clamp(28px,4.4vw,48px)/1.14 var(--ui);letter-spacing:-.03em;margin:0}
+.headline u{text-decoration-thickness:2px;text-underline-offset:6px;text-decoration-color:var(--acc)}
+.lede{color:var(--mute);max-width:58ch;margin:20px 0 0;font-size:16px}
+.status{display:inline-flex;align-items:center;gap:9px;margin-top:20px}
+.status i{width:7px;height:7px;border-radius:50%;background:#58C27D}
+.cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
+.portrait{margin:0;justify-self:center;text-align:center}
+.portrait img{display:block;width:230px;height:290px;object-fit:cover;object-position:top;border-radius:28px;-webkit-mask-image:linear-gradient(#000 74%,transparent);mask-image:linear-gradient(#000 74%,transparent)}
+.portrait figcaption{margin-top:14px}
+.stack{padding:26px 0 30px;border-bottom:1px solid var(--line);margin-bottom:28px}
+.marks{display:grid;grid-template-columns:repeat(auto-fit,minmax(86px,1fr));gap:14px;margin-top:20px}
+.marks span{font:600 19px var(--ui);letter-spacing:-.03em;color:var(--mute);text-align:center}
+.sub{color:var(--mute);margin:0 0 20px}
+
+/* Chat */
+.msg{margin:0 0 26px;display:flex;gap:12px}
+.msg.user{justify-content:flex-end}
+.msg.user .body{background:var(--side);border:1px solid var(--line);padding:9px 14px;border-radius:16px 16px 4px 16px;max-width:85%}
+.mark{width:28px;height:28px;border-radius:50%;background:var(--acc);color:var(--acc-ink);display:grid;place-items:center;font:500 15px var(--serif);flex:none;margin-top:2px}
+.msg.bot .body{font:400 18px/1.6 var(--serif);min-width:0;flex:1}
+.body p{margin:0 0 .7em}
+.body ul{margin:0 0 .7em;padding-left:1.2em}
+.body a{color:var(--acc)}
+.projects{display:grid;grid-template-columns:repeat(auto-fill,minmax(235px,1fr));gap:12px;margin:12px 0 4px;font:400 15px/1.5 var(--ui)}
+.proj{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px}
+.proj h3{margin:0 0 4px;font:600 15.5px var(--ui)}
+.proj p{margin:0 0 10px;color:var(--mute)}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:8px}
+.tags span{font-size:12.5px;border:1px solid var(--line);border-radius:999px;padding:1px 9px;color:var(--mute)}
+.proj a{font-weight:500;font-size:14px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:4px 0 8px}
+.chip{border:1px solid var(--line);background:var(--card);border-radius:999px;padding:7px 14px;font:400 14px var(--ui)}
+.chip:hover{border-color:var(--acc);color:var(--acc)}
+.dots{display:inline-flex;gap:4px;padding:10px 0}
+.dots i{width:6px;height:6px;border-radius:50%;background:var(--mute);animation:b 1s infinite}
+.dots i:nth-child(2){animation-delay:.15s}.dots i:nth-child(3){animation-delay:.3s}
+@keyframes b{0%,80%,100%{opacity:.25}40%{opacity:1}}
+.btn{display:inline-block;border:0;border-radius:999px;background:var(--acc);color:var(--acc-ink);padding:9px 18px;font-weight:500;text-decoration:none}
+.btn.ghost{background:none;border:1px solid var(--line);color:var(--ink)}
+.btn.ghost:hover{border-color:var(--acc)}
+
+/* Composer + role fit */
+.composer{padding:8px 28px 18px;padding-bottom:max(18px,env(safe-area-inset-bottom))}
+.box{max-width:860px;margin:0 auto;background:var(--card);border:1px solid var(--line);border-radius:22px;display:flex;align-items:flex-end;gap:8px;padding:8px 8px 8px 10px}
+.box:focus-within{border-color:var(--acc)}
+textarea{flex:1;border:0;outline:0;resize:none;background:transparent;color:var(--ink);font:inherit;font-size:16px;max-height:140px;padding:7px 0}
+.send{width:36px;height:36px;border-radius:50%;border:0;background:var(--acc);color:var(--acc-ink);font-size:18px}
+.send:disabled{opacity:.35;cursor:default}
+.attach{width:36px;height:36px;border-radius:50%;border:1px solid var(--line);background:none;color:var(--mute);font-size:20px;flex:none}
+.attach:hover{color:var(--acc);border-color:var(--acc)}
+.note{max-width:860px;margin:8px auto 0;text-align:center;font-size:12.5px;color:var(--mute)}
+.fitpanel{max-width:860px;margin:0 auto 10px;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:14px 16px}
+.fitpanel[hidden]{display:none}
+.fitpanel h2{font:600 15px var(--ui);margin:0 0 4px}
+.fitpanel p{margin:0 0 10px;color:var(--mute);font-size:13.5px}
+.fitpanel textarea{width:100%;border:1px solid var(--line);border-radius:10px;padding:8px 10px;min-height:96px;font-size:14px;background:var(--bg);resize:vertical}
+.row{display:flex;gap:10px;align-items:center;justify-content:space-between;margin-top:10px;flex-wrap:wrap}
+.row input{max-width:100%;font-size:13px}
+.fit{font:400 15px/1.5 var(--ui);background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 16px;margin:8px 0}
+.meter{height:8px;border-radius:99px;background:var(--line);overflow:hidden;margin:6px 0 10px}
+.meter i{display:block;height:100%;background:var(--acc)}
+.fit h4{margin:10px 0 2px;font-size:14px}
+
+@media (max-width:900px){
+ .menu{display:none}.burger{display:block}.left{min-width:0}
+ aside{position:fixed;top:0;bottom:0;left:0;z-index:5;background:var(--bg);padding-top:calc(92px + env(safe-area-inset-top,0px));transform:translateX(-100%);box-shadow:4px 0 24px rgba(0,0,0,.25)}
+ aside.open{transform:none}
+ #feed,.composer{padding-left:16px;padding-right:16px}
+ .hero{grid-template-columns:1fr;gap:20px;padding-top:28px}
+ .portrait{order:-1;justify-self:start;text-align:left}
+ .portrait img{width:150px;height:190px}
+ .type{font-size:24px}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+
+<nav class="nav" aria-label="Main">
+  <div class="left"><button class="burger" id="burger" aria-label="Open menu">☰</button><a class="logo" href="#" data-nav="top">Ritik Singh</a></div>
+  <ul class="menu">
+    <li><button data-nav="about">About</button></li>
+    <li><button data-nav="projects">Projects</button></li>
+    <li><button data-nav="ask">Ask me</button></li>
+    <li id="navFit" hidden><button data-nav="fit">Role fit</button></li>
+    <li><button data-nav="contact">Contact</button></li>
+  </ul>
+  <button class="toggle" id="theme" role="switch" aria-checked="true" aria-label="Dark mode"><span></span></button>
+</nav>
+
+<div class="shell">
+<aside id="side" aria-label="Sidebar">
+  <button class="new" id="newChat">New chat</button>
+  <nav>
+    <h2>Find me online</h2>
+    <ul class="links" id="links"></ul>
+  </nav>
+  <nav class="plist-wrap">
+    <h2>All projects</h2>
+    <ul class="plist" id="plist"></ul>
+  </nav>
+  <div class="foot">Ask about my work, or check how well I fit your role.</div>
+</aside>
+
+<main>
+  <div id="feed"><div class="col">
+    <section class="hero" id="hero"></section>
+    <section class="stack" id="stack"></section>
+    <div id="thread"></div>
+  </div></div>
+  <div class="composer">
+    <section class="fitpanel" id="fitpanel" hidden>
+      <h2>Check how well I fit your role</h2>
+      <p>Paste the job requirements or upload them (PDF, Word or text). You’ll get a fit score with strengths and gaps.</p>
+      <textarea id="jdText" placeholder="Paste the requirements here" aria-label="Job requirements"></textarea>
+      <div class="row"><input type="file" id="jdFile" accept=".pdf,.doc,.docx,.txt" aria-label="Upload requirements"><div><button class="btn ghost" type="button" id="fitCancel">Cancel</button> <button class="btn" type="button" id="fitGo">Check fit</button></div></div>
+    </section>
+    <form class="box" id="form">
+      <button class="attach" type="button" id="attach" aria-label="Check fit for a role" title="Check fit for a role">+</button>
+      <textarea id="input" rows="1" placeholder="Ask about my projects, skills or goals" aria-label="Message"></textarea>
+      <button class="send" id="send" type="submit" aria-label="Send" disabled>↑</button>
+    </form>
+    <p class="note">Try “What have you built?” or “How can I contact you?”</p>
+  </div>
+</main>
+</div>
+
+<script>
+/* ============ EDIT THIS SECTION: your content ============ */
+/* URL of your FastAPI backend, e.g. "https://your-app.onrender.com".
+   Leave empty to use the built-in keyword answers (the role-fit button stays hidden). */
+const API_BASE = "";
+
+const PROFILE = {
+  name: "Ritik",
+  role: "BTech student, Python backend and AI",
+  place: "BHOPAL, IND",
+  headline: "I’m a fourth-year BTech student building <u>Python backends</u> and <u>AI features</u>.",
+  photo: "assets/ritik.png",
+  tech: ["Python", "FastAPI", "PostgreSQL", "React", "Node.js", "OpenCV", "YOLO", "RAG"],
+  intro: "I’m Ritik, a fourth-year BTech (CSE/IT) student at RGPV University in Bhopal. I build Python backends and AI features, and I’m looking for an opportunity that can grow into a full-time role.",
+  skills: {
+    "Backend": "Python, FastAPI, SQL Alchemy, PostgreSQL",
+    "Frontend": "React",
+    "AI and ML": "AI/ML integration, RAG pipelines, OpenCV, YOLO-based computer vision",
+    "Core": "Data structures and algorithms in Python, Computer Network, OOP, DBMS"
+  },
+  education: "BTech in CSE/IT at RGPV University, Bhopal. Currently in my fourth year.",
+  goals: "Short term: land an internship and a strong placement after graduation. Long term: start my own company and build real financial independence.",
+  location: "Bhopal, Madhya Pradesh, India",
+  email: "iritik1136@gmail.com"
+};
+
+const PROJECTS = [
+  {title:"Vehicle detection and counting", desc:"Detects, tracks and counts vehicles in video using YOLO11 with BoT-SORT tracking.", tags:["YOLO11","OpenCV","BoT-SORT","Python"], url:"https://github.com/your-username/vehicle-counting"},
+  {title:"PPE detection", desc:"Flags whether people on a site are wearing required safety gear, from camera footage.", tags:["YOLO","OpenCV","Python"], url:"https://github.com/your-username/ppe-detection"},
+  {title:"RAG question answering", desc:"Answers questions over your own documents by retrieving relevant passages before generating a reply. Replace this with your real project.", tags:["RAG","FastAPI","PostgreSQL"], url:""},
+  /* Everything after the first three shows only in the sidebar list. Replace these placeholders. */
+  {title:"Your project 4", desc:"Describe this project in one or two sentences.", tags:["Python"], url:""},
+  {title:"Your project 5", desc:"Describe this project in one or two sentences.", tags:["React"], url:""}
+];
+const FEATURED = PROJECTS.slice(0, 3); // top 3 shown in the centre
+
+const LINKS = [
+  {label:"GitHub",   short:"GH", url:"https://github.com/your-username"},
+  {label:"LinkedIn", short:"in", url:"https://www.linkedin.com/in/your-username"},
+  {label:"X (Twitter)", short:"X", url:"https://x.com/your-username"},
+  {label:"LeetCode", short:"LC", url:"https://leetcode.com/your-username"},
+  {label:"Email",    short:"@",  url:"mailto:" + PROFILE.email},
+  {label:"Resume",   short:"CV", url:"/resume.pdf"}
+];
+/* ========================================================= */
+
+const $ = id => document.getElementById(id);
+const thread = $("thread"), feed = $("feed"), input = $("input"), send = $("send");
+const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+let busy = false;
+
+const esc = s => s.replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+
+$("links").innerHTML = LINKS.map(l =>
+  `<li><a href="${esc(l.url)}" target="_blank" rel="noopener"><span class="ico">${esc(l.short)}</span>${esc(l.label)}</a></li>`).join("");
+
+const projectCards = (list = PROJECTS) => `<div class="projects">` + list.map(p => `
+  <div class="proj"><h3>${esc(p.title)}</h3><p>${esc(p.desc)}</p>
+  <div class="tags">${p.tags.map(t=>`<span>${esc(t)}</span>`).join("")}</div>
+  ${p.url ? `<a href="${esc(p.url)}" target="_blank" rel="noopener">View code</a>` : ""}</div>`).join("") + `</div>`;
+
+const chips = list => `<div class="chips">` + list.map(q => `<button class="chip" data-q="${esc(q)}">${esc(q)}</button>`).join("") + `</div>`;
+const SUGGEST = ["What have you built?", "What’s your tech stack?", "Tell me about your education", "What are your goals?", "How can I contact you?"];
+
+/* Intent matching: add keywords or new intents here */
+const INTENTS = [
+  {keys:["project","built","build","made","work","demo","yolo","portfolio","github"], reply:() => `<p>Here are my top three projects. The full list is in the sidebar.</p>` + projectCards(FEATURED)},
+  {keys:["skill","stack","tech","tools","language","python","react","fastapi","know"], reply:() => `<p>My toolkit, grouped by area:</p><ul>` + Object.entries(PROFILE.skills).map(([k,v])=>`<li><b>${esc(k)}:</b> ${esc(v)}</li>`).join("") + `</ul>`},
+  {keys:["education","college","study","student","degree","university","rgpv","btech","semester"], reply:() => `<p>${esc(PROFILE.education)}</p>`},
+  {keys:["goal","future","startup","plan","internship","intern","hire","hiring","placement","job","looking"], reply:() => `<p>${esc(PROFILE.goals)}</p>`},
+  {keys:["contact","email","reach","social","linkedin","link","connect","resume","cv"], reply:() => `<p>The quickest way to reach me is email: <a href="mailto:${esc(PROFILE.email)}">${esc(PROFILE.email)}</a>. My other profiles are in the sidebar.</p>`},
+  {keys:["where","location","live","based","city","bhopal"], reply:() => `<p>I’m based in ${esc(PROFILE.location)}.</p>`},
+  {keys:["about","who","yourself","intro","hi","hello","hey"], reply:() => `<p>${esc(PROFILE.intro)}</p>` + chips(["What have you built?","What are your goals?"])}
+];
+
+function answer(q){
+  const words = q.toLowerCase().replace(/[^a-z0-9\s]/g," ").split(/\s+/);
+  let best = null, top = 0;
+  for (const it of INTENTS){
+    const score = it.keys.filter(k => words.some(w => w === k || (k.length > 3 && w.startsWith(k)))).length;
+    if (score > top){ top = score; best = it; }
+  }
+  return best ? best.reply() : `<p>I don’t have an answer for that yet. Here’s what I can tell you about:</p>` + chips(SUGGEST);
+}
+
+function scroll(){ feed.scrollTo({top: feed.scrollHeight, behavior: reduce ? "auto" : "smooth"}); }
+
+function addUser(text){
+  const d = document.createElement("div"); d.className = "msg user";
+  const b = document.createElement("div"); b.className = "body"; b.textContent = text;
+  d.appendChild(b); thread.appendChild(d); scroll();
+}
+function addBot(html, instant, noScroll){
+  const d = document.createElement("div"); d.className = "msg bot";
+  d.innerHTML = `<div class="mark" aria-hidden="true">R</div><div class="body" aria-live="polite"></div>`;
+  thread.appendChild(d);
+  const body = d.querySelector(".body");
+  if (instant || reduce){ body.innerHTML = html; if (!noScroll) scroll(); return Promise.resolve(); }
+  body.innerHTML = `<span class="dots"><i></i><i></i><i></i></span>`; scroll();
+  return new Promise(res => setTimeout(() => {
+    body.style.opacity = 0; body.innerHTML = html; body.style.transition = "opacity .25s"; body.style.opacity = 1; scroll(); res();
+  }, 550));
+}
+
+const history = [];
+async function api(path, opts){
+  const r = await fetch(API_BASE + path, opts);
+  if (!r.ok) throw new Error("HTTP " + r.status);
+  return r.json();
+}
+/* Turns the backend's plain-text answer into safe HTML: paragraphs, "- " lists, **bold** */
+const mdLite = t => esc(String(t || "")).split(/\n{2,}/).map(p =>
+  /^\s*[-*] /.test(p) ? "<ul>" + p.split("\n").map(l => `<li>${l.replace(/^\s*[-*] /, "")}</li>`).join("") + "</ul>"
+                      : `<p>${p.replace(/\n/g, "<br>")}</p>`).join("").replace(/\*\*(.+?)\*\*/g, "<b>$1</b>");
+
+async function ask(q){
+  q = q.trim(); if (!q || busy) return;
+  busy = true; addUser(q); input.value = ""; resize();
+  let html;
+  if (API_BASE){
+    try {
+      const d = await api("/chat", {method:"POST", headers:{"Content-Type":"application/json"}, body: JSON.stringify({message:q, history})});
+      html = mdLite(d.answer);
+      history.push({role:"user", content:q}, {role:"assistant", content:d.answer});
+    } catch(e){ html = `<p>I couldn’t reach the server just now. Please try again in a moment.</p>`; }
+  } else html = answer(q);
+  await addBot(html);
+  busy = false; input.focus();
+}
+
+/* Role fit: sends pasted text and/or an uploaded file to POST /fit */
+const list = a => a && a.length ? "<ul>" + a.map(x => `<li>${esc(String(x))}</li>`).join("") + "</ul>" : "<p>None noted.</p>";
+const fitCard = d => { const s = Math.max(0, Math.min(100, Math.round(+d.score || 0)));
+  return `<div class="fit"><b>Fit score: ${s}/100</b><div class="meter"><i style="width:${s}%"></i></div>
+  <p>${esc(d.summary || "")}</p><h4>Strengths</h4>${list(d.strengths)}<h4>Gaps</h4>${list(d.gaps)}</div>`; };
+
+const fitPanel = $("fitpanel");
+$("attach").hidden = !API_BASE;
+$("attach").addEventListener("click", () => { fitPanel.hidden = !fitPanel.hidden; if (!fitPanel.hidden) $("jdText").focus(); });
+$("fitCancel").addEventListener("click", () => { fitPanel.hidden = true; });
+$("fitGo").addEventListener("click", async () => {
+  const text = $("jdText").value.trim(), file = $("jdFile").files[0];
+  if ((!text && !file) || busy) return;
+  busy = true; fitPanel.hidden = true;
+  addUser(file ? `Check my fit for this role (${file.name})` : "Check my fit for this role");
+  const fd = new FormData(); if (text) fd.append("text", text); if (file) fd.append("file", file);
+  let html;
+  try { html = fitCard(await api("/fit", {method:"POST", body: fd})); }
+  catch(e){ html = `<p>I couldn’t analyse that just now. Try pasting the text instead of uploading a file.</p>`; }
+  await addBot(html);
+  $("jdText").value = ""; $("jdFile").value = ""; busy = false;
+});
+
+/* Sidebar: all projects, like a chat history list */
+$("plist").innerHTML = PROJECTS.map((p, i) => `<li><button data-i="${i}" title="${esc(p.title)}">${esc(p.title)}</button></li>`).join("");
+$("plist").addEventListener("click", e => {
+  const b = e.target.closest("button"); if (!b || busy) return;
+  const p = PROJECTS[b.dataset.i];
+  document.querySelectorAll(".plist button").forEach(x => x.classList.toggle("on", x === b));
+  addUser(`Tell me about ${p.title}`);
+  addBot(`<p>Here are the details.</p>` + projectCards([p]), true);
+  $("side").classList.remove("open");
+});
+
+function start(){
+  thread.innerHTML = `<p class="sub">This is a chat-style portfolio. Pick a question below or type your own.</p>`;
+  addBot(`<p>Here are my top three projects. The full list is in the sidebar.</p>` + projectCards(FEATURED) + `<p>Want to know more?</p>` + chips(SUGGEST), true, true);
+}
+
+function resize(){ input.style.height = "auto"; input.style.height = Math.min(input.scrollHeight, 140) + "px"; send.disabled = !input.value.trim(); }
+
+input.addEventListener("input", resize);
+input.addEventListener("keydown", e => { if (e.key === "Enter" && !e.shiftKey){ e.preventDefault(); ask(input.value); } });
+$("form").addEventListener("submit", e => { e.preventDefault(); ask(input.value); });
+document.addEventListener("click", e => {
+  const c = e.target.closest(".chip"); if (c) return ask(c.dataset.q);
+  const a = e.target.closest("[data-act]"); if (!a) return;
+  if (a.dataset.act === "chat") input.focus();
+  if (a.dataset.act === "fit"){ fitPanel.hidden = false; $("jdText").focus(); }
+});
+$("newChat").addEventListener("click", () => { start(); $("side").classList.remove("open"); feed.scrollTop = 0; });
+$("burger").addEventListener("click", () => $("side").classList.toggle("open"));
+feed.addEventListener("click", () => $("side").classList.remove("open"));
+
+/* ---- Hero, clock, typewriter, theme, navbar ---- */
+function typer(el){
+  const words = ["Namaste", "Hello", "Hola", "Bonjour", "Konnichiwa"], t = el.querySelector("span");
+  if (reduce){ t.textContent = words[1]; return; }
+  let w = 0, i = 0, del = false;
+  (function tick(){
+    const word = words[w]; t.textContent = word.slice(0, i);
+    let d = del ? 45 : 85;
+    if (!del && i === word.length){ del = true; d = 1400; }
+    else if (del && i === 0){ del = false; w = (w + 1) % words.length; d = 350; }
+    else i += del ? -1 : 1;
+    setTimeout(tick, d);
+  })();
+}
+function renderHero(){
+  const resume = LINKS.find(l => l.label === "Resume");
+  $("hero").innerHTML = `<div>
+    <p class="type" aria-hidden="true"><span></span><i></i></p>
+    <h1 class="headline">${PROFILE.headline}</h1>
+    <p class="lede">${esc(PROFILE.intro)}</p>
+    <p class="status mono"><i></i>Looking for an opportunity</p>
+    <div class="cta">
+      <button class="btn" data-act="chat">Chat with me</button>
+      ${API_BASE ? `<button class="btn ghost" data-act="fit">Check my fit for a role</button>` : ""}
+      ${resume ? `<a class="btn ghost" href="${esc(resume.url)}" target="_blank" rel="noopener">Resume</a>` : ""}
+    </div></div>
+    <figure class="portrait"><img src="${esc(PROFILE.photo)}" alt="Portrait of ${esc(PROFILE.name)}"><figcaption class="mono" id="clock"></figcaption></figure>`;
+  $("stack").innerHTML = `<p class="mono">Tech I use</p><div class="marks">${PROFILE.tech.map(t => `<span>${esc(t)}</span>`).join("")}</div>`;
+  typer($("hero").querySelector(".type"));
+  const fmt = new Intl.DateTimeFormat("en-IN", {timeZone:"Asia/Kolkata", hour:"2-digit", minute:"2-digit", hour12:true});
+  const clock = () => { $("clock").textContent = `${PROFILE.place} · IST ${fmt.format(new Date()).toUpperCase()}`; };
+  clock(); setInterval(clock, 30000);
+}
+
+const root = document.documentElement;
+function applyTheme(t, save){
+  root.dataset.theme = t; $("theme").setAttribute("aria-checked", String(t === "dark"));
+  if (save) try { localStorage.setItem("theme", t); } catch(e){}
+}
+$("theme").addEventListener("click", () => applyTheme(root.dataset.theme === "dark" ? "light" : "dark", true));
+applyTheme(root.dataset.theme || "dark", false);
+
+$("navFit").hidden = !API_BASE;
+const smooth = {behavior: reduce ? "auto" : "smooth", block: "start"};
+document.querySelector(".nav").addEventListener("click", e => {
+  const b = e.target.closest("[data-nav]"); if (!b) return; e.preventDefault();
+  const k = b.dataset.nav;
+  if (k === "top") feed.scrollTo({top: 0, behavior: smooth.behavior});
+  if (k === "about") $("hero").scrollIntoView(smooth);
+  if (k === "projects") thread.scrollIntoView(smooth);
+  if (k === "ask") input.focus();
+  if (k === "fit"){ fitPanel.hidden = false; $("jdText").focus(); }
+  if (k === "contact") ask("How can I contact you?");
+});
+
+renderHero();
+start();
+feed.scrollTop = 0;
+/* ===== Hackathons section: paste at the very bottom of the script, just above the closing script tag ===== */
+const HACKATHONS = [
+  {
+    event: "CSAY India Hackathon 2025",
+    host: "Central Detective Training Institute, Jaipur",
+    project: "SafeZone",
+    desc: "A web-based public safety platform where citizens anonymously report and track local safety incidents in real time. Verified reports appear on a live interactive map for community members and local authorities.",
+    tags: ["Leaflet.js", "OpenStreetMap", "Vercel"],
+    url: "https://safezone-watch-report-lc83.vercel.app/",
+    cta: "Live prototype"
+  },
+  {
+    event: "HackWithSanchaar",
+    host: "Guru Tegh Bahadur Institute of Technology",
+    project: "Real-time vehicle detection and counting",
+    desc: "A computer vision pipeline that detects vehicles in video, tracks each one with a persistent ID and counts traffic across virtual lines, showing boxes, confidence scores and counts on the feed.",
+    tags: ["Python", "OpenCV", "YOLO", "ByteTrack", "BoT-SORT", "NumPy"],
+    url: "https://github.com/IRitiks/Real-Time-Vehicle-Detection-Counting",
+    cta: "View code"
+  }
+];
+
+function addHackathons(){
+  const grid = thread.querySelector(".msg.bot .projects");
+  if (!grid || grid.nextElementSibling?.classList.contains("hackathons")) return;
+  grid.insertAdjacentHTML("afterend",
+    `<p class="hackathons" style="margin-top:18px">Hackathons I’ve taken part in:</p><div class="projects">` +
+    HACKATHONS.map(h => `<div class="proj"><h3>${esc(h.event)}</h3>
+      <p>${esc(h.project)}, at ${esc(h.host)}</p>
+      <p>${esc(h.desc)}</p>
+      <div class="tags">${h.tags.map(t => `<span>${esc(t)}</span>`).join("")}</div>
+      <a href="${esc(h.url)}" target="_blank" rel="noopener">${esc(h.cta)}</a></div>`).join("") + `</div>`);
+}
+
+/* keep the section after "New chat" too */
+const startBase = start;
+start = function(){ startBase(); addHackathons(); };
+addHackathons();
+
+</script>
+</body>
+</html>
